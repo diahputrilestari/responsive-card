@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Card UI Design</title>
+
+    <!-- Vendor Script -->
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="imgBox">
+             <img src="image/black.png"/>
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>Dany D-Force Smart Watch<br>
+                    <span>Running Collection</span>
+                </h2>
+                <p>
+                    The Dany D-Force Smart Watch is the perfect blend of style and functionality. This sleek and modern smartwatch offers advanced health monitoring, fitness tracking, and seamless connectivity with your smartphone. Stay ahead of your day with notifications, weather updates, and more, all accessible right from your wrist. With its durable design and long-lasting battery, the Dany D-Force Smart Watch is your ideal companion for both everyday wear and active lifestyles.
+                </p>
+                <p class="product-colors">Available Colors:
+                    <span class="black active" data-color-primary="#000" data-color-sec="#212121" data-pic="image/black.png"></span>
+                    <span class="khaki" data-color-primary="#c3b091" data-color-sec="#a9997c" data-pic="image/khaki.png"></span>
+                    <span class="blue" data-color-primary="#41678a" data-color-sec="#355470" data-pic="image/blue.png"></span>
+                </p>
+                <h3>Rs.7,999</h3>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Change The Picture and Associated Element Color when Color Options Are Clicked.
+        $(".product-colors span").click(function() {
+            $(".product-colors span").removeClass("active");
+            $(this).addClass("active");
+            $(".active").css("border-color", $(this).attr("data-color-sec"))
+            $("body").css("background", $(this).attr("data-color-primary"));
+            $(".content h2").css("color", $(this).attr("data-color-sec"));
+            $(".content h3").css("color", $(this).attr("data-color-sec"));
+            $(".container .imgBox").css("background", $(this).attr("data-color-sec"));
+            $(".container .details button").css("background", $(this).attr("data-color-sec"));
+            $(".imgBox img").attr('src', $(this).attr("data-pic"));
+        });
+    </script>
+
+</body>
+
+</html>
